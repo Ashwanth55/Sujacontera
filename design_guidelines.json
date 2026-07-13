@@ -1,0 +1,164 @@
+{
+  "theme": "light",
+  "typography": {
+    "headings": "Playfair Display, serif",
+    "body": "Inter or Poppins, sans-serif",
+    "scales": {
+      "h1": "text-5xl sm:text-6xl md:text-7xl font-light tracking-tighter leading-tight",
+      "h2": "text-4xl sm:text-5xl font-light tracking-tight",
+      "h3": "text-2xl sm:text-3xl font-medium tracking-tight",
+      "h4": "text-xl sm:text-2xl font-medium",
+      "body": "text-base sm:text-lg leading-relaxed text-[#1E1E1E]/80",
+      "overline": "text-xs sm:text-sm uppercase tracking-[0.2em] font-semibold text-[#C8A96A]"
+    }
+  },
+  "colors": {
+    "primary": "#2C211A",
+    "secondary": "#5C4033",
+    "accent": "#C8A96A",
+    "background": "#FAF8F5",
+    "text": "#1E1E1E",
+    "cards": "#FFFFFF"
+  },
+  "visual_enhancers": {
+    "border_radius": "rounded-[18px] to rounded-[24px]",
+    "shadows": "shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)]",
+    "gradients": "bg-gradient-to-b from-black/60 to-black/30 for hero overlays; soft radial gradients for premium depth",
+    "glassmorphism": "backdrop-blur-xl bg-[#FAF8F5]/80 border border-[#2C211A]/10 for sticky nav and overlays"
+  },
+  "layout_spacing": {
+    "section_padding": "py-24 md:py-32",
+    "container": "max-w-7xl mx-auto px-6 sm:px-8 lg:px-12",
+    "grid_gaps": "gap-8 md:gap-12"
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-[#2C211A] text-white rounded-full px-8 py-4 hover:bg-[#5C4033] transition-colors duration-300 font-medium",
+      "outline": "border border-[#C8A96A] text-[#2C211A] rounded-full px-8 py-4 hover:bg-[#C8A96A] hover:text-white transition-colors duration-300 font-medium"
+    },
+    "cards": {
+      "base": "bg-[#FFFFFF] rounded-[24px] shadow-sm border border-[#2C211A]/5 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
+    },
+    "inputs": {
+      "base": "bg-transparent border-b border-[#2C211A]/20 rounded-none px-0 py-3 focus:border-[#C8A96A] focus:ring-0 transition-colors placeholder:text-[#2C211A]/40 text-[#1E1E1E]"
+    }
+  },
+  "sections_blueprint": [
+    {
+      "name": "Hero Section",
+      "layout": "Full screen (min-h-screen) background image.",
+      "animations": "Subtle slow-motion zoom-out (scale 1.05 to 1 over 10s). Staggered fade-up for text.",
+      "content": "Cinematic villa imagery, dark warm overlay. Headline: 'Designing Spaces That Feel Like Home'. CTA: 'Book Free Consultation' & 'View Portfolio'. Trust badges at bottom."
+    },
+    {
+      "name": "Why Choose Us",
+      "layout": "Grid layout (grid-cols-1 md:grid-cols-2 lg:grid-cols-3) on #FAF8F5.",
+      "animations": "Hover elevation on cards.",
+      "content": "6 icon cards emphasizing premium finish, timeless design, transparency."
+    },
+    {
+      "name": "Services Grid",
+      "layout": "Bento-style or 4-column dense grid (grid-cols-1 sm:grid-cols-2 lg:grid-cols-4).",
+      "animations": "Hover zoom on image, golden subtle border highlight.",
+      "content": "8 image cards (Apartment, Villa, Modular Kitchen, Wardrobes, TV Units, False Ceilings, Renovation)."
+    },
+    {
+      "name": "Featured Projects",
+      "layout": "Masonry gallery with category filters.",
+      "animations": "Hover reveals project details via sliding dark overlay.",
+      "content": "High-end residential interior photos."
+    },
+    {
+      "name": "Design Process",
+      "layout": "Alternating timeline layout on desktop, vertical list on mobile.",
+      "animations": "Scroll-triggered line drawing connecting 6 steps.",
+      "content": "Consultation, Site Visit, 3D Design, Material Selection, Execution, Handover."
+    },
+    {
+      "name": "Testimonials",
+      "layout": "Carousel / Horizontal scroll.",
+      "content": "Luxury cards with Google rating (5 gold stars), client photos, elegant serif quotes."
+    },
+    {
+      "name": "Statistics",
+      "layout": "4-column grid over a deep walnut background (#2C211A) with gold text (#C8A96A).",
+      "animations": "Animated counters triggered on scroll."
+    },
+    {
+      "name": "Interior Design Styles",
+      "layout": "Horizontal overlapping cards or sleek standard grid.",
+      "content": "Minimal, Modern, Luxury, Contemporary, Scandinavian, Industrial, Traditional."
+    },
+    {
+      "name": "FAQ",
+      "layout": "Accordion list in single narrow column.",
+      "content": "Minimalist borders, plus/minus icons."
+    },
+    {
+      "name": "Booking Form",
+      "layout": "Two-column layout (Contact details + Form) with #FFFFFF card on #FAF8F5 background.",
+      "content": "Fields: Name, Phone, Email, Property Type, Location, Budget, Message."
+    },
+    {
+      "name": "Admin Dashboard",
+      "layout": "Sidebar navigation (dark #2C211A) + main content area (#FAF8F5). strict grid hierarchy.",
+      "content": "Login page, Dashboard Stats, Leads table with Shadcn Table, drawer for details, status dropdown (Pending, Contacted, Won, Lost), CSV export button."
+    }
+  ],
+  "image_urls": {
+    "hero": [
+      {
+        "url": "https://images.unsplash.com/photo-1455593984172-9f753a2e1ebd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1OTN8MHwxfHNlYXJjaHwyfHxsdXh1cnklMjBjaW5lbWF0aWMlMjB2aWxsYSUyMGludGVyaW9yJTIwd2FybSUyMGxpZ2h0aW5nfGVufDB8fHx8MTc4MzkxOTQ2Mnww&ixlib=rb-4.1.0&q=85",
+        "description": "Cinematic villa warm lighting"
+      }
+    ],
+    "services": [
+      {
+        "category": "Modular Kitchen",
+        "url": "https://images.unsplash.com/photo-1759147960461-b74a7e9a75d4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBtb2R1bGFyJTIwa2l0Y2hlbiUyMHdhbG51dCUyMHdvb2QlMjBtYXJibGV8ZW58MHx8fHwxNzgzOTE5NDYyfDA&ixlib=rb-4.1.0&q=85"
+      },
+      {
+        "category": "Wardrobes",
+        "url": "https://images.unsplash.com/photo-1631889993877-71e193bf79b8?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NjZ8MHwxfHNlYXJjaHwzfHxsdXh1cnklMjBiZWRyb29tJTIwd2FyZHJvYmUlMjBkZXNpZ258ZW58MHx8fHwxNzgzOTE5NDYyfDA&ixlib=rb-4.1.0&q=85"
+      },
+      {
+        "category": "TV Unit",
+        "url": "https://images.pexels.com/photos/36834040/pexels-photo-36834040.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+      },
+      {
+        "category": "Apartment / Villa",
+        "url": "https://images.unsplash.com/photo-1762778233534-397d51ce1b62?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1OTN8MHwxfHNlYXJjaHwzfHxsdXh1cnklMjBjaW5lbWF0aWMlMjB2aWxsYSUyMGludGVyaW9yJTIwd2FybSUyMGxpZ2h0aW5nfGVufDB8fHx8MTc4MzkxOTQ2Mnww&ixlib=rb-4.1.0&q=85"
+      }
+    ],
+    "styles": [
+      {
+        "category": "Scandinavian",
+        "url": "https://images.unsplash.com/photo-1724582586413-6b69e1c94a17?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODF8MHwxfHNlYXJjaHwzfHxzY2FuZGluYXZpYW4lMjBpbnRlcmlvciUyMGRlc2lnbnxlbnwwfHx8fDE3ODM5MTk0NjJ8MA&ixlib=rb-4.1.0&q=85"
+      },
+      {
+        "category": "Industrial",
+        "url": "https://images.unsplash.com/photo-1628512743826-2c28a508ad5e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NjV8MHwxfHNlYXJjaHwxfHxpbmR1c3RyaWFsJTIwaW50ZXJpb3IlMjBkZXNpZ24lMjBsaXZpbmclMjByb29tfGVufDB8fHx8MTc4MzkxOTQ2MXww&ixlib=rb-4.1.0&q=85"
+      },
+      {
+        "category": "Traditional",
+        "url": "https://images.unsplash.com/photo-1776090147407-f2308b4092cb?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwyfHx0cmFkaXRpb25hbCUyMGx1eHVyeSUyMGludGVyaW9yJTIwZGVzaWdufGVufDB8fHx8MTc4MzkxOTQ2Mnww&ixlib=rb-4.1.0&q=85"
+      }
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Use Framer Motion for scroll-triggered animations and hover effects (e.g., subtle parallax, fade-ups).",
+    "Ensure all buttons and cards use the specified border-radius (18-24px) for consistency unless fully rounded.",
+    "Form implementation: use react-hook-form + zod with Shadcn UI Form components.",
+    "Admin dashboard must be functional with a dummy state for the leads table, featuring Shadcn Table, Dropdowns for status updates, and a Drawer for lead details.",
+    "Use Phosphor Icons or Lucide Icons with light stroke weights to match the elegant vibe."
+  ],
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "Do not use complete transparent background in header if it overlaps unreadable content; use backdrop-blur-xl bg-[#FAF8F5]/80.",
+    "All interactive elements MUST include a data-testid attribute.",
+    "Avoid generic 'centered everything'. Use asymmetry and grid alignments for a more editorial look.",
+    "Use 2-3x more spacing than feels comfortable. Cramped designs look cheap.",
+    "Do not add universal transitions (e.g. `transition: all`) which breaks transform animations.",
+    "Never use `App { text-align: center; }` in CSS.",
+    "Mocked flows: Admin authentication (hardcode a simple login state), CSV export (can just download a hardcoded blob)."
+  ]
+}
