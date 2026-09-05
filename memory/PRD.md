@@ -16,6 +16,8 @@ Luxury landing page for an Indian interior design studio (apartments/villas/home
 - Admin login (JWT, seeded from ADMIN_EMAIL/ADMIN_PASSWORD env)
 - Admin dashboard: stats cards, search, status filter, details drawer, status update, notes, CSV export, delete, click-to-call, WhatsApp deep-link
 - Resend integration: business notification + customer confirmation (mocked to console when RESEND_API_KEY empty)
+- "Step Inside" 3D zoom-through portal (5 rooms) with cinematic scale/blur transitions
+- Material hotspots (Jul 2026): clickable +/dots inside each room revealing walnut/marble/brass with material name, origin, and sourcing story in a glass card (StepInside.jsx)
 
 ## Credentials
 Admin: `admin@sujacontera.com` / `Admin@123`
