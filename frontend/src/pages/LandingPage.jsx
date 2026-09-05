@@ -15,6 +15,7 @@ import {
 } from "@/components/ui/select";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { api } from "@/lib/apiClient";
+import { useLenis, MaskedLines, BeforeAfter } from "@/components/site/luxury";
 
 /* ---------------------- Content ---------------------- */
 const CONTACT = {
@@ -181,7 +182,11 @@ function Hero({ onBook }) {
             <span className="eyebrow text-brand-accent">EST · Est. 2014</span>
           </div>
           <h1 className="font-display text-brand-bg font-light text-5xl sm:text-6xl md:text-7xl lg:text-[92px] leading-[1.02] tracking-tight text-balance" data-testid="hero-headline">
-            Designing spaces that <em className="italic gold-shimmer">feel</em> like home.
+            <MaskedLines delay={0.15}>
+{`Designing spaces
+that feel
+like home.`}
+            </MaskedLines>
           </h1>
           <p className="mt-8 max-w-xl text-brand-bg/80 text-lg md:text-xl leading-relaxed">
             Premium turnkey interiors for apartments, villas &amp; independent homes — considered, quiet, and unmistakably yours.
@@ -667,6 +672,104 @@ function FooterCol({ title, items }) {
   );
 }
 
+function Marquee() {
+  const words = ["Walnut", "Italian Marble", "Brass Detail", "Turnkey Craft", "Hand-drawn", "Bespoke", "Since 2014", "Warm Modernism"];
+  const row = [...words, ...words, ...words];
+  return (
+    <section className="bg-brand-primary py-10 md:py-14 border-y border-brand-accent/15 overflow-hidden relative">
+      <div className="flex whitespace-nowrap gap-14 md:gap-20 animate-[marquee_38s_linear_infinite]">
+        {row.map((w, i) => (
+          <span key={i} className="font-display italic text-brand-bg/85 text-3xl md:text-5xl lg:text-6xl font-light tracking-tight inline-flex items-center gap-14 md:gap-20">
+            {w}
+            <span className="w-2 h-2 rounded-full bg-brand-accent inline-block" />
+          </span>
+        ))}
+      </div>
+      <style>{`@keyframes marquee { from { transform: translateX(0) } to { transform: translateX(-33.333%) } }`}</style>
+    </section>
+  );
+}
+
+function Manifesto() {
+  const chapters = [
+    { n: "Ch. 01", t: "We design for how people actually live.", d: "Not for magazines. Not for algorithms. For the coffee at 6am, the friends over on Fridays, and the quiet Sundays no one photographs." },
+    { n: "Ch. 02", t: "Every material earns its place.", d: "Solid walnut, honed marble, patinated brass — each chosen for how it ages, not just how it looks the day we hand over the keys." },
+    { n: "Ch. 03", t: "Restraint is a signature.", d: "The best rooms remove three things for every one they add. We edit ruthlessly so your home can breathe." },
+  ];
+  return (
+    <section className="py-28 md:py-40 marble-surface">
+      <div className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
+        <motion.div {...fadeUp} className="mb-16 md:mb-24 max-w-xl">
+          <div className="eyebrow mb-5">The Studio Manifesto</div>
+          <h2 className="font-display font-light text-4xl md:text-5xl text-brand-primary leading-tight">Three beliefs we <em className="italic text-brand-secondary">refuse to compromise on.</em></h2>
+        </motion.div>
+        <div className="space-y-16 md:space-y-24">
+          {chapters.map((c, i) => (
+            <motion.div key={c.n} {...fadeUp} transition={{ ...fadeUp.transition, delay: i * 0.1 }} className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 items-baseline border-t border-brand-primary/10 pt-10 md:pt-14">
+              <div className="md:col-span-3">
+                <div className="font-display text-xl text-brand-accent">{c.n}</div>
+              </div>
+              <div className="md:col-span-9">
+                <h3 className="font-display text-3xl md:text-5xl text-brand-primary leading-[1.1] tracking-tight mb-6">{c.t}</h3>
+                <p className="font-serifAlt text-lg md:text-xl text-brand-primary/70 leading-relaxed italic max-w-2xl">"{c.d}"</p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function BeforeAfterSection() {
+  const pairs = [
+    { label: "LivingRoom", title: "The Marble Living Room", city: "Jubilee Hills",
+      before: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1600&q=80",
+      after: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=80" },
+    { label: "Kitchen", title: "The Walnut Kitchen Suite", city: "Gachibowli",
+      before: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1600&q=80",
+      after: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1600&q=80" },
+    { label: "Bedroom", title: "The Ivory Master Bedroom", city: "Banjara Hills",
+      before: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1600&q=80",
+      after: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1600&q=80" },
+  ];
+  const [i, setI] = useState(0);
+  return (
+    <section className="py-24 md:py-32 walnut-surface relative overflow-hidden" data-testid="before-after-section">
+      <div className="grain absolute inset-0" />
+      <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <motion.div {...fadeUp} className="mb-12 md:mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+          <div className="max-w-2xl">
+            <div className="eyebrow mb-5">Before / After</div>
+            <h2 className="font-display font-light text-4xl md:text-5xl text-brand-bg leading-tight">
+              Drag to reveal the <em className="italic text-brand-accent">transformation.</em>
+            </h2>
+          </div>
+          <div className="flex gap-2 flex-wrap">
+            {pairs.map((p, k) => (
+              <button key={p.label} onClick={() => setI(k)} data-testid={`ba-tab-${k}`}
+                className={`px-4 py-2 rounded-full text-sm tracking-wide transition-all duration-300 ${i === k ? "bg-brand-accent text-brand-primary" : "border border-brand-bg/25 text-brand-bg/80 hover:border-brand-accent hover:text-brand-accent"}`}>
+                {p.title.replace("The ", "")}
+              </button>
+            ))}
+          </div>
+        </motion.div>
+
+        <motion.div key={pairs[i].label} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.2, 0.8, 0.2, 1] }}>
+          <BeforeAfter before={pairs[i].before} after={pairs[i].after} label={pairs[i].label} />
+          <div className="flex items-baseline justify-between mt-6">
+            <div>
+              <div className="font-display text-2xl md:text-3xl text-brand-bg">{pairs[i].title}</div>
+              <div className="text-brand-bg/60 text-sm mt-1">{pairs[i].city} · 6-week transformation</div>
+            </div>
+            <div className="hidden md:block text-brand-bg/50 text-xs tracking-widest uppercase">← Drag →</div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 function FloatingActions({ onBook }) {
   const [show, setShow] = useState(false);
   useEffect(() => {
@@ -693,6 +796,7 @@ function FloatingActions({ onBook }) {
 
 /* ---------------------- Page ---------------------- */
 export default function LandingPage() {
+  useLenis();
   const formRef = useRef(null);
   const onBook = () => {
     formRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -701,9 +805,12 @@ export default function LandingPage() {
     <div className="min-h-screen bg-brand-bg text-brand-text">
       <Navbar onBook={onBook} />
       <Hero onBook={onBook} />
+      <Marquee />
+      <Manifesto />
       <WhyChoose />
       <Services />
       <Projects />
+      <BeforeAfterSection />
       <Process />
       <Stats />
       <Styles />
