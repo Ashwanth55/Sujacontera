@@ -104,7 +104,19 @@ export default function StepInside() {
           whileHover={{ scale: 1.005 }}
           transition={{ duration: 0.4 }}
         >
-          <img src={EXTERIOR} alt="Villa exterior" className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1400ms] group-hover:scale-105" />
+          <video
+            poster={EXTERIOR}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            data-testid="exterior-video"
+            className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1400ms] group-hover:scale-105"
+          >
+            <source src="/step-inside-exterior.webm" type="video/webm" />
+            <source src="/step-inside-exterior.mp4" type="video/mp4" />
+          </video>
           <div className="absolute inset-0 bg-gradient-to-t from-brand-primary/70 via-transparent to-brand-primary/30" />
 
           {/* Door hotspot */}

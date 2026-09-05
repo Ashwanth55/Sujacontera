@@ -19,6 +19,7 @@ Luxury landing page for an Indian interior design studio (apartments/villas/home
 - "Step Inside" 3D zoom-through portal (5 rooms) with cinematic scale/blur transitions
 - Material hotspots (Jul 2026): clickable +/dots inside each room revealing walnut/marble/brass with material name, origin, and sourcing story in a glass card (StepInside.jsx)
 - "Enquire about this finish" (Jul 2026): material card button closes portal, scrolls to booking form, and pre-fills the message with the chosen material (CustomEvent "prefill-enquiry" → BookingSection listener)
+- Cinematic exterior video (Jul 2026): "Step Inside" entrance card is now a looping muted twilight-home video (self-hosted WebM + MP4 fallback in /public, Unsplash still as poster) — StepInside.jsx
 
 ## Credentials
 Admin: `admin@sujacontera.com` / `Admin@123`
