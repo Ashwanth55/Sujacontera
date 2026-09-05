@@ -16,6 +16,7 @@ import {
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { api } from "@/lib/apiClient";
 import { useLenis, MaskedLines, BeforeAfter } from "@/components/site/luxury";
+import StepInside from "@/components/site/StepInside";
 
 /* ---------------------- Content ---------------------- */
 const CONTACT = {
@@ -810,6 +811,7 @@ export default function LandingPage() {
       <WhyChoose />
       <Services />
       <Projects />
+      <StepInside />
       <BeforeAfterSection />
       <Process />
       <Stats />
