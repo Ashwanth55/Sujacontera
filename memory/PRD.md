@@ -18,6 +18,7 @@ Luxury landing page for an Indian interior design studio (apartments/villas/home
 - Resend integration: business notification + customer confirmation (mocked to console when RESEND_API_KEY empty)
 - "Step Inside" 3D zoom-through portal (5 rooms) with cinematic scale/blur transitions
 - Material hotspots (Jul 2026): clickable +/dots inside each room revealing walnut/marble/brass with material name, origin, and sourcing story in a glass card (StepInside.jsx)
+- "Enquire about this finish" (Jul 2026): material card button closes portal, scrolls to booking form, and pre-fills the message with the chosen material (CustomEvent "prefill-enquiry" → BookingSection listener)
 
 ## Credentials
 Admin: `admin@sujacontera.com` / `Admin@123`

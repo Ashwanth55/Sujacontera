@@ -508,6 +508,17 @@ function BookingSection({ formRef }) {
   const [form, setForm] = useState({ name: "", phone: "", email: "", property_type: "", location: "", budget: "", message: "" });
   const [errors, setErrors] = useState({});
 
+  useEffect(() => {
+    const handler = (e) => {
+      const mat = e.detail?.material;
+      if (!mat) return;
+      setForm(f => ({ ...f, message: `I'd love to explore using ${mat} in my home. Please share more on availability and finishes.` }));
+      setTimeout(() => formRef.current?.scrollIntoView({ behavior: "smooth" }), 120);
+    };
+    window.addEventListener("prefill-enquiry", handler);
+    return () => window.removeEventListener("prefill-enquiry", handler);
+  }, [formRef]);
+
   const validate = () => {
     const e = {};
     if (form.name.trim().length < 2) e.name = "Please enter your full name.";

@@ -229,13 +229,26 @@ function PortalView({ i, setI, onClose }) {
                 {activeMat.story}
               </p>
 
-              <button
-                onClick={() => setActiveMat(null)}
-                data-testid="material-card-close"
-                className="mt-5 text-[10px] tracking-[0.3em] uppercase text-brand-bg/60 hover:text-brand-accent transition-colors"
-              >
-                Close ×
-              </button>
+              <div className="mt-6 flex items-center justify-between gap-3">
+                <button
+                  onClick={() => {
+                    window.dispatchEvent(new CustomEvent("prefill-enquiry", { detail: { material: activeMat.material } }));
+                    onClose();
+                  }}
+                  data-testid="material-enquire-btn"
+                  className="flex-1 text-center text-[10px] tracking-[0.25em] uppercase bg-brand-accent text-brand-primary rounded-full px-4 py-2.5 hover:bg-brand-bg transition-colors"
+                >
+                  Enquire about this finish
+                </button>
+                <button
+                  onClick={() => setActiveMat(null)}
+                  data-testid="material-card-close"
+                  className="text-brand-bg/60 hover:text-brand-accent transition-colors shrink-0"
+                  aria-label="Close material card"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
             </div>
           </motion.div>
         )}
