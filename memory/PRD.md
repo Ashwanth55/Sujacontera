@@ -15,7 +15,7 @@ Luxury landing page for an Indian interior design studio (apartments/villas/home
 - Consultation booking form → POST /api/leads (saves to Mongo + fires Resend emails)
 - Admin login (JWT, seeded from ADMIN_EMAIL/ADMIN_PASSWORD env)
 - Admin dashboard: stats cards, search, status filter, details drawer, status update, notes, CSV export, delete, click-to-call, WhatsApp deep-link
-- Resend integration: business notification + customer confirmation (mocked to console when RESEND_API_KEY empty)
+- Resend integration: business notification + customer confirmation — now LIVE via Emergent-managed email proxy (Jul 2026). No API key needed; sends from platform-verified domain. Owner inbox: Sujacontera@gmail.com (OWNER_EMAIL), from_name "Suja Contera", customer email set as Reply-To on the lead notification. Guardrail gate (_assert_safe_email) enforced on every send.
 - "Step Inside" 3D zoom-through portal (5 rooms) with cinematic scale/blur transitions
 - Material hotspots (Jul 2026): clickable +/dots inside each room revealing walnut/marble/brass with material name, origin, and sourcing story in a glass card (StepInside.jsx)
 - "Enquire about this finish" (Jul 2026): material card button closes portal, scrolls to booking form, and pre-fills the message with the chosen material (CustomEvent "prefill-enquiry" → BookingSection listener)
@@ -25,7 +25,6 @@ Luxury landing page for an Indian interior design studio (apartments/villas/home
 Admin: `admin@sujacontera.com` / `Admin@123`
 
 ## Backlog / Next
-- Add real Resend API key + verified sender domain (currently mocked)
 - Real project photos & Google Maps embed
 - Blog / Journal section
 - WhatsApp Business API webhook
