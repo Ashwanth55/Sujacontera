@@ -1,0 +1,23 @@
+{
+  "summary": "Backend-only test of POST /api/leads email pipeline via the Emergent-managed email proxy. Created 2 test leads (one with customer email delivered@resend.dev, one without email) against the public REACT_APP_BACKEND_URL. Both leads returned 200 with status=Pending and a valid uuid id. Backend logs confirm 'Business notification sent for lead <id>' for BOTH leads and 'Customer confirmation sent for lead <id>' for the email-bearing lead, with no 'Failed to send' errors for our lead ids. Also imported server and called send_email(to='delivered@resend.dev', subject='QA test', html='<table role=presentation>...</table>') directly — returned a non-null string id, confirming the proxy at POST https://integrations.emergentagent.com/api/v1/email/send accepts the payload and is not mocked. 4/4 pytest tests passed.",
+  "backend_issues": { "critical": [], "minor": [] },
+  "frontend_issues": { "ui_bugs": [], "integration_issues": [], "design_issues": [] },
+  "test_report_links": [
+    "/app/backend/tests/test_email_leads.py",
+    "/app/test_reports/pytest/pytest_results.xml"
+  ],
+  "action_items": [],
+  "critical_code_review_comments": [
+    "FastAPI @app.on_event('startup'|'shutdown') is deprecated — migrate to lifespan handlers (non-blocking, just deprecation).",
+    "send_lead_emails is fire-and-forget via asyncio.create_task; failures are logged but never surfaced. Consider a lightweight DB flag (email_sent: bool) so admins can retry/verify from the panel.",
+    "CORS_ORIGINS defaults to '*' but allow_credentials=True is set — browsers will reject credentialed requests when origin is '*'. Set explicit origins in .env for production.",
+    "Stale RESEND_API_KEY / SENDER_EMAIL / BUSINESS_EMAIL keys remain in backend/.env after migration; safe to remove to avoid confusion."
+  ],
+  "updated_files": ["/app/backend/tests/test_email_leads.py"],
+  "success_rate": { "backend": "100%", "frontend": "not tested (backend-only per request)" },
+  "test_credentials": "Customer email used in tests: delivered@resend.dev (safe sink). Owner emails delivered to configured OWNER_EMAIL=Sujacontera@gmail.com by design (2 real emails sent as required).",
+  "seed_data_creation": "2 test leads inserted into MongoDB 'leads' collection (names prefixed 'TEST QA'). Not auto-cleaned — the /api/admin/leads UI can remove them; kept per instruction not to modify sent emails/history.",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Email path is live and wired to Emergent proxy. Owner (Sujacontera@gmail.com) will receive real emails on every POST /api/leads — throttle test volume. To verify without spamming, either (a) unset OWNER_EMAIL in a scratch env, or (b) grep backend logs for 'Business notification sent for lead <id>'. The direct helper test in test_email_leads.py::test_send_email_helper_direct is the cheapest smoke test."
+}
