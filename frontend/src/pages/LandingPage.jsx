@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/select";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { api } from "@/lib/apiClient";
-import { useLenis, MaskedLines, BeforeAfter } from "@/components/site/luxury";
+import { useLenis, MaskedLines } from "@/components/site/luxury";
 import StepInside from "@/components/site/StepInside";
 
 /* ---------------------- Content ---------------------- */
@@ -32,11 +32,12 @@ const SERVICES = [
   { title: "Apartment Interiors", tag: "Turnkey", img: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1400&q=80" },
   { title: "Villa Interiors", tag: "Signature", img: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=80" },
   { title: "Independent Homes", tag: "Bespoke", img: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=80" },
-  { title: "Modular Kitchens", tag: "Craft", img: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1400&q=80" },
-  { title: "Wardrobes", tag: "Handmade", img: "https://images.unsplash.com/photo-1631889993877-71e193bf79b8?auto=format&fit=crop&w=1400&q=80" },
-  { title: "TV Units", tag: "Millwork", img: "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1400" },
-  { title: "False Ceilings", tag: "Detail", img: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1400&q=80" },
-  { title: "Renovation", tag: "Rework", img: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=80" },
+];
+
+const PROPERTY_TYPES = [
+  { title: "Apartment Interiors", tag: "Turnkey", desc: "Full-home interiors for flats and condos, engineered for compact luxury and zero wasted space.", img: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1400&q=80" },
+  { title: "Villa Interiors", tag: "Signature", desc: "Statement interiors for standalone villas — layered materials, generous scale, quiet grandeur.", img: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=80" },
+  { title: "Independent Homes", tag: "Bespoke", desc: "Ground-up, fully bespoke interiors for independent houses — designed around how your family lives.", img: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=80" },
 ];
 
 const PROJECTS = [
@@ -268,12 +269,12 @@ function Services() {
               Turnkey interiors, <em className="italic text-brand-secondary">rendered in full.</em>
             </h2>
           </div>
-          <p className="text-brand-primary/60 max-w-sm">Eight disciplines. One studio. One accountable senior designer per project.</p>
+          <p className="text-brand-primary/60 max-w-sm">Three home types. One studio. One accountable senior designer per project.</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {SERVICES.map((s, idx) => (
-            <motion.a key={s.title} href="#book" {...fadeUp} transition={{ ...fadeUp.transition, delay: (idx % 4) * 0.06 }}
+            <motion.a key={s.title} href="#book" {...fadeUp} transition={{ ...fadeUp.transition, delay: (idx % 3) * 0.06 }}
               className="group relative overflow-hidden rounded-[20px] aspect-[3/4] bg-brand-primary block"
               data-testid={`service-card-${idx}`}>
               <img src={s.img} alt={s.title} loading="lazy" className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-110" />
@@ -733,50 +734,39 @@ function Manifesto() {
   );
 }
 
-function BeforeAfterSection() {
-  const pairs = [
-    { label: "LivingRoom", title: "The Marble Living Room", city: "Jubilee Hills",
-      before: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=1600&q=80",
-      after: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1600&q=80" },
-    { label: "Kitchen", title: "The Walnut Kitchen Suite", city: "Gachibowli",
-      before: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1600&q=80",
-      after: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1600&q=80" },
-    { label: "Bedroom", title: "The Ivory Master Bedroom", city: "Banjara Hills",
-      before: "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1600&q=80",
-      after: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1600&q=80" },
-  ];
-  const [i, setI] = useState(0);
+function PropertyTypes() {
   return (
-    <section className="py-24 md:py-32 walnut-surface relative overflow-hidden" data-testid="before-after-section">
+    <section className="py-24 md:py-32 walnut-surface relative overflow-hidden" data-testid="property-types-section">
       <div className="grain absolute inset-0" />
       <div className="relative max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        <motion.div {...fadeUp} className="mb-12 md:mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-          <div className="max-w-2xl">
-            <div className="eyebrow mb-5">Before / After</div>
-            <h2 className="font-display font-light text-4xl md:text-5xl text-brand-bg leading-tight">
-              Drag to reveal the <em className="italic text-brand-accent">transformation.</em>
-            </h2>
-          </div>
-          <div className="flex gap-2 flex-wrap">
-            {pairs.map((p, k) => (
-              <button key={p.label} onClick={() => setI(k)} data-testid={`ba-tab-${k}`}
-                className={`px-4 py-2 rounded-full text-sm tracking-wide transition-all duration-300 ${i === k ? "bg-brand-accent text-brand-primary" : "border border-brand-bg/25 text-brand-bg/80 hover:border-brand-accent hover:text-brand-accent"}`}>
-                {p.title.replace("The ", "")}
-              </button>
-            ))}
-          </div>
+        <motion.div {...fadeUp} className="mb-12 md:mb-16 max-w-2xl">
+          <div className="eyebrow mb-5 text-brand-accent">What We Build</div>
+          <h2 className="font-display font-light text-4xl md:text-5xl text-brand-bg leading-tight">
+            Every home, <em className="italic text-brand-accent">one signature standard.</em>
+          </h2>
         </motion.div>
 
-        <motion.div key={pairs[i].label} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease: [0.2, 0.8, 0.2, 1] }}>
-          <BeforeAfter before={pairs[i].before} after={pairs[i].after} label={pairs[i].label} />
-          <div className="flex items-baseline justify-between mt-6">
-            <div>
-              <div className="font-display text-2xl md:text-3xl text-brand-bg">{pairs[i].title}</div>
-              <div className="text-brand-bg/60 text-sm mt-1">{pairs[i].city} · 6-week transformation</div>
-            </div>
-            <div className="hidden md:block text-brand-bg/50 text-xs tracking-widest uppercase">← Drag →</div>
-          </div>
-        </motion.div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          {PROPERTY_TYPES.map((p, idx) => (
+            <motion.a key={p.title} href="#book" {...fadeUp} transition={{ ...fadeUp.transition, delay: idx * 0.1 }}
+              className="group relative overflow-hidden rounded-[24px] aspect-[3/4] block"
+              data-testid={`property-type-card-${idx}`}>
+              <img src={p.img} alt={p.title} loading="lazy" className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-110" />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-primary via-brand-primary/50 to-brand-primary/10" />
+              <div className="absolute inset-0 border border-transparent group-hover:border-brand-accent/60 transition-colors duration-500 rounded-[24px]" />
+              <div className="absolute top-6 left-6">
+                <span className="eyebrow text-brand-accent">{p.tag}</span>
+              </div>
+              <div className="absolute bottom-7 left-7 right-7 text-brand-bg">
+                <h3 className="font-display text-2xl md:text-3xl leading-tight mb-2">{p.title}</h3>
+                <p className="text-brand-bg/75 text-sm leading-relaxed mb-4">{p.desc}</p>
+                <span className="inline-flex items-center gap-2 text-sm tracking-wide text-brand-accent group-hover:gap-3 transition-all">
+                  Enquire <ArrowUpRight className="w-4 h-4 transition-transform duration-500 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </span>
+              </div>
+            </motion.a>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -823,7 +813,7 @@ export default function LandingPage() {
       <Services />
       <Projects />
       <StepInside />
-      <BeforeAfterSection />
+      <PropertyTypes />
       <Process />
       <Stats />
       <Styles />

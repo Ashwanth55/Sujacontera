@@ -20,6 +20,7 @@ Luxury landing page for an Indian interior design studio (apartments/villas/home
 - Material hotspots (Jul 2026): clickable +/dots inside each room revealing walnut/marble/brass with material name, origin, and sourcing story in a glass card (StepInside.jsx)
 - "Enquire about this finish" (Jul 2026): material card button closes portal, scrolls to booking form, and pre-fills the message with the chosen material (CustomEvent "prefill-enquiry" → BookingSection listener)
 - Cinematic exterior video (Jul 2026): "Step Inside" entrance card is now a looping muted twilight-home video (self-hosted WebM + MP4 fallback in /public, Unsplash still as poster) — StepInside.jsx
+- Homepage restructure (Feb 2026): Removed the "Before/After" drag-reveal section; replaced it with a new "What We Build" section (`PropertyTypes` component) showing only 3 property-type cards — Apartment Interiors, Villa Interiors, Independent Homes — each with a description and "Enquire" CTA linking to the booking form. Services grid ("Our Craft") trimmed from 8 cards to the same 3 property types (Apartment/Villa/Independent Homes); copy updated from "Eight disciplines" to "Three home types" and grid changed to a 3-column layout.
 
 ## Credentials
 Admin: `admin@sujacontera.com` / `Admin@123`
