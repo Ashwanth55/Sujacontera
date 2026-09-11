@@ -1,15 +1,62 @@
 {
   "theme": "light",
+  "scope": "HERO-ONLY refresh of Suja Contera luxury interior design landing page",
+  "hero_refresh_blueprint": {
+    "problem_solved": "Eliminated exterior estate image dominated by a huge central tree (photo-1600585154340-be6161a56a0c). Replaced with a warm, layered, double-height luxury interior living room featuring solid walnut paneling, honed marble, and ambient architectural lighting to immediately signal high-end interior craft.",
+    "hero_image_selection": {
+      "primary_url": "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=2400&q=80",
+      "alt_text": "Bespoke luxury villa interior living room with custom walnut wall panelling and warm accent lighting",
+      "description": "Double-height interior space showing interior architectural craft, walnut wood texture, Italian marble details, and warm indoor lighting. 0% exterior trees.",
+      "fallback_url": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2400&q=80"
+    },
+    "visual_decisions": {
+      "overlay_strategy": "Directional gradient overlay (bg-gradient-to-r from-[#2C211A]/85 via-[#2C211A]/55 to-[#2C211A]/20) plus subtle vertical gradient (from-[#2C211A]/70 via-transparent to-[#2C211A]/80). Maintains minimum 4.5:1 text contrast on left content block while allowing the interior living room details on the right to shine without heavy flat darkening.",
+      "color_palette": {
+        "primary_walnut": "#2C211A",
+        "deep_espresso": "#1E1E1E",
+        "gold_accent": "#C8A96A",
+        "champagne_light": "#FAF8F5",
+        "text_light": "#FAF8F5"
+      },
+      "typography": {
+        "eyebrow": "text-xs tracking-[0.28em] uppercase font-semibold text-[#C8A96A] with 48px gold hairline line",
+        "heading": "Playfair Display, text-5xl sm:text-6xl md:text-7xl lg:text-[88px] font-light leading-[1.02] tracking-tight text-[#FAF8F5]",
+        "subheading": "Inter, text-lg md:text-xl text-[#FAF8F5]/80 max-w-xl leading-relaxed font-normal"
+      },
+      "ctas": {
+        "primary_button": "Pill-shaped rounded-full bg-[#C8A96A] text-[#2C211A] hover:bg-[#C8A96A]/90 h-14 px-8 text-base font-medium with arrow icon. Triggers smooth scroll callback to #book consultation form.",
+        "secondary_anchor": "Inline link text View Portfolio with #C8A96A underline accent and ArrowUpRight icon linking to #projects section."
+      },
+      "trust_signals": {
+        "badges": [
+          "4.9 · 240+ Google reviews (5 gold stars)",
+          "500+ Homes Designed",
+          "10-Year Warranty"
+        ],
+        "styling": "Flex wrap layout with subtle vertical #FAF8F5/25 dividers."
+      },
+      "micro_interactions": {
+        "background_motion": "Framer motion scrollYProgress parallax shift (y: 0% to 20%) with subtle 10-second slow zoom (animate-slow-zoom scale-105 to scale-100).",
+        "particles": "14 ambient floating gold specks (#C8A96A at 30% opacity) with staggered CSS float-up animation.",
+        "scroll_indicator": "Vertical pulse line at bottom center with 'SCROLL' uppercase label."
+      },
+      "navigation": {
+        "behavior": "Fixed navbar with z-50 depth. On hero top: transparent glass with gold brand mark and light text. On scroll past 40px: transitions to backdrop-blur-xl bg-[#FAF8F5]/85 with #2C211A border and dark text.",
+        "links": ["Services", "Projects", "Process", "Stories", "Contact"],
+        "cta": "Book Consultation button in navbar triggering same scroll callback."
+      }
+    }
+  },
   "typography": {
-    "headings": "Playfair Display, serif",
-    "body": "Inter or Poppins, sans-serif",
+    "headings": "Playfair Display, Georgia, serif",
+    "body": "Inter, -apple-system, BlinkMacSystemFont, sans-serif",
     "scales": {
-      "h1": "text-5xl sm:text-6xl md:text-7xl font-light tracking-tighter leading-tight",
+      "h1": "text-5xl sm:text-6xl md:text-7xl lg:text-[88px] font-light leading-[1.02] tracking-tight",
       "h2": "text-4xl sm:text-5xl font-light tracking-tight",
       "h3": "text-2xl sm:text-3xl font-medium tracking-tight",
       "h4": "text-xl sm:text-2xl font-medium",
       "body": "text-base sm:text-lg leading-relaxed text-[#1E1E1E]/80",
-      "overline": "text-xs sm:text-sm uppercase tracking-[0.2em] font-semibold text-[#C8A96A]"
+      "overline": "text-xs sm:text-sm uppercase tracking-[0.28em] font-semibold text-[#C8A96A]"
     }
   },
   "colors": {
@@ -23,142 +70,65 @@
   "visual_enhancers": {
     "border_radius": "rounded-[18px] to rounded-[24px]",
     "shadows": "shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_20px_40px_rgb(0,0,0,0.08)]",
-    "gradients": "bg-gradient-to-b from-black/60 to-black/30 for hero overlays; soft radial gradients for premium depth",
-    "glassmorphism": "backdrop-blur-xl bg-[#FAF8F5]/80 border border-[#2C211A]/10 for sticky nav and overlays"
+    "hero_overlay": "bg-gradient-to-r from-[#2C211A]/85 via-[#2C211A]/55 to-transparent combined with bg-gradient-to-b from-[#2C211A]/60 via-transparent to-[#2C211A]/80",
+    "glassmorphism": "backdrop-blur-xl bg-[#FAF8F5]/85 border-b border-[#2C211A]/10 for sticky navbar"
   },
   "layout_spacing": {
     "section_padding": "py-24 md:py-32",
     "container": "max-w-7xl mx-auto px-6 sm:px-8 lg:px-12",
-    "grid_gaps": "gap-8 md:gap-12"
+    "hero_container": "pt-40 pb-24 min-h-screen flex flex-col justify-center max-w-7xl mx-auto px-6 sm:px-8 lg:px-12"
   },
   "components": {
     "buttons": {
-      "primary": "bg-[#2C211A] text-white rounded-full px-8 py-4 hover:bg-[#5C4033] transition-colors duration-300 font-medium",
-      "outline": "border border-[#C8A96A] text-[#2C211A] rounded-full px-8 py-4 hover:bg-[#C8A96A] hover:text-white transition-colors duration-300 font-medium"
-    },
-    "cards": {
-      "base": "bg-[#FFFFFF] rounded-[24px] shadow-sm border border-[#2C211A]/5 overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2"
-    },
-    "inputs": {
-      "base": "bg-transparent border-b border-[#2C211A]/20 rounded-none px-0 py-3 focus:border-[#C8A96A] focus:ring-0 transition-colors placeholder:text-[#2C211A]/40 text-[#1E1E1E]"
+      "hero_primary": "rounded-full bg-[#C8A96A] text-[#2C211A] hover:bg-[#C8A96A]/90 h-14 px-8 text-base font-medium inline-flex items-center gap-2 transition-transform",
+      "hero_secondary": "inline-flex items-center gap-2 text-[#FAF8F5]/90 hover:text-[#C8A96A] border-b border-[#FAF8F5]/40 hover:border-[#C8A96A] pb-1 pt-1 text-sm tracking-wide transition-colors",
+      "nav_button": "rounded-full bg-[#2C211A] text-[#FAF8F5] hover:bg-[#5C4033] px-6 h-11 text-sm"
     }
   },
   "sections_blueprint": [
     {
-      "name": "Hero Section",
-      "layout": "Full screen (min-h-screen) background image.",
-      "animations": "Subtle slow-motion zoom-out (scale 1.05 to 1 over 10s). Staggered fade-up for text.",
-      "content": "Cinematic villa imagery, dark warm overlay. Headline: 'Designing Spaces That Feel Like Home'. CTA: 'Book Free Consultation' & 'View Portfolio'. Trust badges at bottom."
+      "name": "Hero Section (Refreshed)",
+      "layout": "Full viewport (min-h-screen) relative container with fixed navbar overlay and parallax interior background.",
+      "image_url": "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=2400&q=80",
+      "content": "Est 2014 eyebrow with gold line -> Playfair line-masked title 'Designing spaces that feel like home.' -> Subtitle emphasizing turnkey interiors for apartments, villas & independent homes -> Primary CTA 'Book Free Consultation' & Secondary CTA 'View Portfolio' -> Trust bar with Google 4.9 rating, 500+ homes, 10-Yr warranty."
     },
     {
-      "name": "Why Choose Us",
-      "layout": "Grid layout (grid-cols-1 md:grid-cols-2 lg:grid-cols-3) on #FAF8F5.",
-      "animations": "Hover elevation on cards.",
-      "content": "6 icon cards emphasizing premium finish, timeless design, transparency."
-    },
-    {
-      "name": "Services Grid",
-      "layout": "Bento-style or 4-column dense grid (grid-cols-1 sm:grid-cols-2 lg:grid-cols-4).",
-      "animations": "Hover zoom on image, golden subtle border highlight.",
-      "content": "8 image cards (Apartment, Villa, Modular Kitchen, Wardrobes, TV Units, False Ceilings, Renovation)."
-    },
-    {
-      "name": "Featured Projects",
-      "layout": "Masonry gallery with category filters.",
-      "animations": "Hover reveals project details via sliding dark overlay.",
-      "content": "High-end residential interior photos."
-    },
-    {
-      "name": "Design Process",
-      "layout": "Alternating timeline layout on desktop, vertical list on mobile.",
-      "animations": "Scroll-triggered line drawing connecting 6 steps.",
-      "content": "Consultation, Site Visit, 3D Design, Material Selection, Execution, Handover."
-    },
-    {
-      "name": "Testimonials",
-      "layout": "Carousel / Horizontal scroll.",
-      "content": "Luxury cards with Google rating (5 gold stars), client photos, elegant serif quotes."
-    },
-    {
-      "name": "Statistics",
-      "layout": "4-column grid over a deep walnut background (#2C211A) with gold text (#C8A96A).",
-      "animations": "Animated counters triggered on scroll."
-    },
-    {
-      "name": "Interior Design Styles",
-      "layout": "Horizontal overlapping cards or sleek standard grid.",
-      "content": "Minimal, Modern, Luxury, Contemporary, Scandinavian, Industrial, Traditional."
-    },
-    {
-      "name": "FAQ",
-      "layout": "Accordion list in single narrow column.",
-      "content": "Minimalist borders, plus/minus icons."
-    },
-    {
-      "name": "Booking Form",
-      "layout": "Two-column layout (Contact details + Form) with #FFFFFF card on #FAF8F5 background.",
-      "content": "Fields: Name, Phone, Email, Property Type, Location, Budget, Message."
-    },
-    {
-      "name": "Admin Dashboard",
-      "layout": "Sidebar navigation (dark #2C211A) + main content area (#FAF8F5). strict grid hierarchy.",
-      "content": "Login page, Dashboard Stats, Leads table with Shadcn Table, drawer for details, status dropdown (Pending, Contacted, Won, Lost), CSV export button."
+      "name": "Preserved Landing Page Sections",
+      "note": "Maintains Marquee, Studio Manifesto, Why Choose Us, Our Craft Services (3 property types), Featured Projects Masonry, Step Inside Portal, What We Build Property Types (Apartment, Villa, Independent Homes), Process Timeline, Stats, Styles, Testimonials, FAQ, Consultation Booking Form, Footer."
     }
   ],
   "image_urls": {
     "hero": [
       {
-        "url": "https://images.unsplash.com/photo-1455593984172-9f753a2e1ebd?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1OTN8MHwxfHNlYXJjaHwyfHxsdXh1cnklMjBjaW5lbWF0aWMlMjB2aWxsYSUyMGludGVyaW9yJTIwd2FybSUyMGxpZ2h0aW5nfGVufDB8fHx8MTc4MzkxOTQ2Mnww&ixlib=rb-4.1.0&q=85",
-        "description": "Cinematic villa warm lighting"
+        "url": "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=2400&q=80",
+        "description": "Bespoke double-height villa living room with custom walnut panelling, Italian marble, warm accent lighting, and zero trees"
       }
     ],
     "services": [
       {
-        "category": "Modular Kitchen",
-        "url": "https://images.unsplash.com/photo-1759147960461-b74a7e9a75d4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1ODB8MHwxfHNlYXJjaHwxfHxsdXh1cnklMjBtb2R1bGFyJTIwa2l0Y2hlbiUyMHdhbG51dCUyMHdvb2QlMjBtYXJibGV8ZW58MHx8fHwxNzgzOTE5NDYyfDA&ixlib=rb-4.1.0&q=85"
+        "category": "Apartment Interiors",
+        "url": "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1400&q=80"
       },
       {
-        "category": "Wardrobes",
-        "url": "https://images.unsplash.com/photo-1631889993877-71e193bf79b8?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NjZ8MHwxfHNlYXJjaHwzfHxsdXh1cnklMjBiZWRyb29tJTIwd2FyZHJvYmUlMjBkZXNpZ258ZW58MHx8fHwxNzgzOTE5NDYyfDA&ixlib=rb-4.1.0&q=85"
+        "category": "Villa Interiors",
+        "url": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=80"
       },
       {
-        "category": "TV Unit",
-        "url": "https://images.pexels.com/photos/36834040/pexels-photo-36834040.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
-      },
-      {
-        "category": "Apartment / Villa",
-        "url": "https://images.unsplash.com/photo-1762778233534-397d51ce1b62?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1OTN8MHwxfHNlYXJjaHwzfHxsdXh1cnklMjBjaW5lbWF0aWMlMjB2aWxsYSUyMGludGVyaW9yJTIwd2FybSUyMGxpZ2h0aW5nfGVufDB8fHx8MTc4MzkxOTQ2Mnww&ixlib=rb-4.1.0&q=85"
-      }
-    ],
-    "styles": [
-      {
-        "category": "Scandinavian",
-        "url": "https://images.unsplash.com/photo-1724582586413-6b69e1c94a17?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NTYxODF8MHwxfHNlYXJjaHwzfHxzY2FuZGluYXZpYW4lMjBpbnRlcmlvciUyMGRlc2lnbnxlbnwwfHx8fDE3ODM5MTk0NjJ8MA&ixlib=rb-4.1.0&q=85"
-      },
-      {
-        "category": "Industrial",
-        "url": "https://images.unsplash.com/photo-1628512743826-2c28a508ad5e?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjY2NjV8MHwxfHNlYXJjaHwxfHxpbmR1c3RyaWFsJTIwaW50ZXJpb3IlMjBkZXNpZ24lMjBsaXZpbmclMjByb29tfGVufDB8fHx8MTc4MzkxOTQ2MXww&ixlib=rb-4.1.0&q=85"
-      },
-      {
-        "category": "Traditional",
-        "url": "https://images.unsplash.com/photo-1776090147407-f2308b4092cb?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2NzZ8MHwxfHNlYXJjaHwyfHx0cmFkaXRpb25hbCUyMGx1eHVyeSUyMGludGVyaW9yJTIwZGVzaWdufGVufDB8fHx8MTc4MzkxOTQ2Mnww&ixlib=rb-4.1.0&q=85"
+        "category": "Independent Homes",
+        "url": "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=80"
       }
     ]
   },
   "instructions_to_main_agent": [
-    "Use Framer Motion for scroll-triggered animations and hover effects (e.g., subtle parallax, fade-ups).",
-    "Ensure all buttons and cards use the specified border-radius (18-24px) for consistency unless fully rounded.",
-    "Form implementation: use react-hook-form + zod with Shadcn UI Form components.",
-    "Admin dashboard must be functional with a dummy state for the leads table, featuring Shadcn Table, Dropdowns for status updates, and a Drawer for lead details.",
-    "Use Phosphor Icons or Lucide Icons with light stroke weights to match the elegant vibe."
+    "Update HERO_IMG constant in /app/frontend/src/pages/LandingPage.jsx line 29 to 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=2400&q=80'.",
+    "Adjust the Hero section image overlay in LandingPage.jsx from a simple blanket dark gradient to a refined directional gradient (e.g. `bg-gradient-to-r from-brand-primary/90 via-brand-primary/60 to-brand-primary/20`) to highlight the interior living room details on the right.",
+    "Preserve all hero interactive callbacks: onBook scroll handler attached to 'Book Free Consultation' button, anchor link to #projects for 'View Portfolio', and data-testid attributes for test stability.",
+    "Maintain existing 3 service and property type categories: Apartment Interiors, Villa Interiors, and Independent Homes.",
+    "Do not add extra features outside the Hero refresh scope."
   ],
   "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
-    "Do not use complete transparent background in header if it overlaps unreadable content; use backdrop-blur-xl bg-[#FAF8F5]/80.",
-    "All interactive elements MUST include a data-testid attribute.",
-    "Avoid generic 'centered everything'. Use asymmetry and grid alignments for a more editorial look.",
-    "Use 2-3x more spacing than feels comfortable. Cramped designs look cheap.",
-    "Do not add universal transitions (e.g. `transition: all`) which breaks transform animations.",
-    "Never use `App { text-align: center; }` in CSS.",
-    "Mocked flows: Admin authentication (hardcode a simple login state), CSV export (can just download a hardcoded blob)."
+    "Never use transparent backgrounds without blur or scrim on fixed headers.",
+    "Ensure all interactive elements retain data-testid attributes (e.g. data-testid='hero-headline', data-testid='hero-book-btn', data-testid='hero-portfolio-btn').",
+    "Keep typography scale ceilings strictly adhering to WCAG AA / APCA contrast standards."
   ]
 }

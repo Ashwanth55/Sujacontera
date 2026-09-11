@@ -1,0 +1,82 @@
+.interior-hero {
+  --hero-ink: #191a18;
+  --hero-paper: #faf8f5;
+  --hero-gold: #e4c78f;
+  position: relative;
+  isolation: isolate;
+  color: var(--hero-paper);
+  background: var(--hero-ink);
+  letter-spacing: 0;
+}
+
+.interior-hero__scene { position: absolute; inset: 0; z-index: -1; overflow: hidden; background: var(--hero-ink); }
+.interior-hero__frame { position: absolute; inset: 0; transform-origin: center 52%; will-change: transform, opacity; }
+.interior-hero__image { width: 100%; height: 100%; object-fit: cover; object-position: center 56%; }
+.interior-hero__shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(14, 16, 15, .68), transparent 23%, transparent 68%, rgba(14, 16, 15, .87)),
+    linear-gradient(90deg, rgba(14, 16, 15, .9), rgba(14, 16, 15, .69) 30%, rgba(14, 16, 15, .17) 58%, transparent 78%);
+}
+.interior-hero__inner {
+  min-height: max(680px, calc(100svh - 58px));
+  padding-top: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 72px;
+}
+.interior-hero__main { max-width: 600px; margin-block: auto; }
+.interior-hero__signature { display: flex; align-items: center; gap: 12px; font-size: 12px; color: var(--hero-gold); margin-bottom: 27px; text-transform: uppercase; }
+.interior-hero__signature > span { width: 32px; height: 1px; background: var(--hero-gold); }
+.interior-hero h1 { line-height: 1.18; font-weight: 400; letter-spacing: 0; }
+.interior-hero h1 em { color: var(--hero-gold); }
+.interior-hero__description { font-size: 16px; line-height: 1.8; max-width: 410px; margin-top: 25px; color: #f2efea; }
+.interior-hero__homes { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 18px; font-size: 12px; color: #e4dfd5; }
+.interior-hero__homes span { color: var(--hero-gold); }
+.interior-hero__actions { display: flex; align-items: center; flex-wrap: wrap; gap: 28px; margin-top: 32px; }
+.interior-hero__book { height: 54px; padding: 0 25px; gap: 14px; font-size: 14px; font-weight: 500; background: #c8a96a; color: #231f18; transition: background-color 250ms, transform 250ms; }
+.interior-hero__book:hover { background: #e4c78f; transform: translateY(-2px); }
+.interior-hero__portfolio { display: inline-flex; align-items: center; gap: 10px; padding-block: 10px; border-bottom: 1px solid rgba(250, 248, 245, .6); font-size: 13px; transition: color 250ms, border-color 250ms; }
+.interior-hero__portfolio:hover { color: var(--hero-gold); border-color: var(--hero-gold); }
+.interior-hero__footer { border-top: 1px solid rgba(250, 248, 245, .25); padding-block: 22px 25px; display: flex; align-items: center; flex-wrap: wrap; gap: 18px 32px; font-size: 12px; color: #eee9e1; }
+.interior-hero__rating, .interior-hero__warranty, .interior-hero__explore { display: flex; align-items: center; gap: 10px; }
+.interior-hero__footer strong { color: var(--hero-paper); font-weight: 500; }
+.interior-hero__warranty svg { color: var(--hero-gold); }
+.interior-hero__explore { margin-left: auto; transition: color 250ms; }
+.interior-hero__explore:hover { color: var(--hero-gold); }
+
+.interior-hero__journey { position: absolute; z-index: 2; right: 48px; top: 50%; transform: translateY(-50%); display: flex; align-items: center; gap: 20px; pointer-events: none; }
+.interior-hero__journey-caption { display: flex; flex-direction: column; align-items: flex-end; text-align: right; gap: 6px; }
+.interior-hero__journey-eyebrow { font-size: 10px; letter-spacing: .34em; text-transform: uppercase; color: rgba(250, 248, 245, .6); }
+.interior-hero__journey-label { font-family: var(--font-display, "Cormorant Garamond", serif); font-size: 26px; font-weight: 400; line-height: 1; color: var(--hero-paper); }
+.interior-hero__journey-dots { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+.interior-hero__journey-dots span { width: 5px; height: 5px; border-radius: 999px; background: rgba(250, 248, 245, .35); transition: height .6s cubic-bezier(.2,.8,.2,1), background-color .6s; }
+.interior-hero__journey-dots span.is-active { height: 26px; background: var(--hero-gold); }
+
+@media (max-width: 767px) {
+  .interior-hero__inner { min-height: max(690px, calc(100svh - 62px)); padding-top: 130px; gap: 64px; }
+  .interior-hero__image { object-position: 64% center; }
+  .interior-hero__shade { background: linear-gradient(180deg, rgba(14, 16, 15, .69), rgba(14, 16, 15, .58) 50%, rgba(14, 16, 15, .16) 72%, rgba(14, 16, 15, .92)), linear-gradient(90deg, rgba(14, 16, 15, .46), transparent); }
+  .interior-hero__main { margin-block: 0 auto; }
+  .interior-hero__signature { margin-bottom: 22px; font-size: 10px; gap: 10px; }
+  .interior-hero__signature > span { width: 23px; }
+  .interior-hero h1 { line-height: 1.22; }
+  .interior-hero__description { font-size: 14px; margin-top: 22px; max-width: 305px; }
+  .interior-hero__homes { font-size: 11px; gap: 8px; margin-top: 16px; }
+  .interior-hero__actions { gap: 14px 24px; margin-top: 26px; }
+  .interior-hero__book { height: 52px; }
+  .interior-hero__footer { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 12px; font-size: 11px; padding-block: 19px 23px; }
+  .interior-hero__rating { grid-column: 1 / -1; }
+  .interior-hero__explore { display: none; }
+  .interior-hero__journey { right: 24px; top: auto; bottom: 132px; transform: none; flex-direction: row-reverse; align-items: center; gap: 14px; }
+  .interior-hero__journey-eyebrow { display: none; }
+  .interior-hero__journey-label { font-size: 18px; }
+  .interior-hero__journey-dots { flex-direction: row; gap: 7px; }
+  .interior-hero__journey-dots span.is-active { height: 5px; width: 22px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .interior-hero *, .interior-hero *::before, .interior-hero *::after { animation: none !important; transition: none !important; }
+}

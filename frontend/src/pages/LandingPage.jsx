@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
 import {
   Menu, X, ArrowUpRight, Phone, MessageCircle, ArrowRight, Star,
@@ -15,7 +15,8 @@ import {
 } from "@/components/ui/select";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { api } from "@/lib/apiClient";
-import { useLenis, MaskedLines } from "@/components/site/luxury";
+import { useLenis } from "@/components/site/luxury";
+import { Hero } from "@/components/site/Hero";
 import StepInside from "@/components/site/StepInside";
 
 /* ---------------------- Content ---------------------- */
@@ -25,8 +26,6 @@ const CONTACT = {
   email: "hello@sujacontera.com",
   city: "Hyderabad, India",
 };
-
-const HERO_IMG = "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2400&q=80";
 
 const SERVICES = [
   { title: "Apartment Interiors", tag: "Turnkey", img: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1400&q=80" },
@@ -155,70 +154,6 @@ function Navbar({ onBook }) {
         )}
       </AnimatePresence>
     </header>
-  );
-}
-
-function Hero({ onBook }) {
-  const ref = useRef(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
-  return (
-    <section id="top" ref={ref} className="relative min-h-screen overflow-hidden">
-      <motion.div style={{ y }} className="absolute inset-0">
-        <img src={HERO_IMG} alt="Luxury villa interior" className="w-full h-full object-cover animate-slow-zoom" />
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-primary/70 via-brand-primary/50 to-brand-primary/85" />
-      </motion.div>
-
-      {/* Floating gold particles */}
-      <div className="pointer-events-none absolute inset-0">
-        {Array.from({ length: 14 }).map((_, i) => (
-          <div key={i} className="absolute rounded-full bg-brand-accent/30 animate-float-up"
-            style={{ left: `${(i * 37) % 100}%`, top: `${(i * 53) % 90}%`, width: `${4 + (i % 3) * 3}px`, height: `${4 + (i % 3) * 3}px`, animationDelay: `${i * 0.6}s`, animationDuration: `${5 + (i % 4)}s` }} />
-        ))}
-      </div>
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pt-40 pb-24 min-h-screen flex flex-col justify-center">
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.2 }} className="max-w-3xl">
-          <div className="flex items-center gap-3 mb-8">
-            <div className="w-12 h-px bg-brand-accent" />
-            <span className="eyebrow text-brand-accent">EST · Est. 2014</span>
-          </div>
-          <h1 className="font-display text-brand-bg font-light text-5xl sm:text-6xl md:text-7xl lg:text-[92px] leading-[1.02] tracking-tight text-balance" data-testid="hero-headline">
-            <MaskedLines delay={0.15}>
-{`Designing spaces
-that feel
-like home.`}
-            </MaskedLines>
-          </h1>
-          <p className="mt-8 max-w-xl text-brand-bg/80 text-lg md:text-xl leading-relaxed">
-            Premium turnkey interiors for apartments, villas &amp; independent homes — considered, quiet, and unmistakably yours.
-          </p>
-          <div className="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4">
-            <Button onClick={onBook} data-testid="hero-book-btn" className="rounded-full bg-brand-accent text-brand-primary hover:bg-brand-accent/90 h-14 px-8 text-base font-medium group">
-              Book Free Consultation <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
-            </Button>
-            <a href="#projects" data-testid="hero-portfolio-btn" className="inline-flex items-center gap-2 text-brand-bg/90 hover:text-brand-accent border-b border-brand-bg/40 hover:border-brand-accent pb-1 pt-1 text-sm tracking-wide transition-colors">
-              View Portfolio <ArrowUpRight className="w-4 h-4" />
-            </a>
-          </div>
-
-          {/* Trust badges */}
-          <div className="mt-16 flex flex-wrap items-center gap-x-10 gap-y-4 text-brand-bg/75">
-            <div className="flex items-center gap-2"><div className="flex gap-1">{Array.from({ length: 5 }).map((_, i) => <Star key={i} className="w-3.5 h-3.5 fill-brand-accent text-brand-accent" />)}</div><span className="text-sm">4.9 · 240+ Google reviews</span></div>
-            <div className="h-4 w-px bg-brand-bg/25" />
-            <div className="text-sm tracking-wide">500+ Homes Designed</div>
-            <div className="h-4 w-px bg-brand-bg/25" />
-            <div className="text-sm tracking-wide">10-Year Warranty</div>
-          </div>
-        </motion.div>
-      </div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2 text-brand-bg/60">
-        <span className="text-[10px] tracking-[0.3em] uppercase">Scroll</span>
-        <div className="w-px h-10 bg-gradient-to-b from-brand-accent to-transparent" />
-      </div>
-    </section>
   );
 }
 
