@@ -40,12 +40,11 @@ const PROPERTY_TYPES = [
 ];
 
 const PROJECTS = [
-  { title: "Prestige Sunrise Villa", city: "Hyderabad", cat: "Villa", img: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=80", h: "tall" },
-  { title: "Aparna Sarovar Grande", city: "Kompally", cat: "Apartment", img: "https://images.unsplash.com/photo-1616137466211-f939a420be84?auto=format&fit=crop&w=1400&q=80", h: "short" },
-  { title: "The Marble House", city: "Jubilee Hills", cat: "Independent", img: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1400&q=80", h: "tall" },
-  { title: "Walnut Kitchen Suite", city: "Gachibowli", cat: "Kitchen", img: "https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=1400&q=80", h: "short" },
-  { title: "Ivory Master Bedroom", city: "Banjara Hills", cat: "Apartment", img: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?auto=format&fit=crop&w=1400&q=80", h: "short" },
-  { title: "The Studio Loft", city: "Hitec City", cat: "Apartment", img: "https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&w=1400&q=80", h: "tall" },
+  { title: "Textured Wave Bedroom", city: "Medipally", cat: "Bedroom", img: "/images/proj1.jpeg", h: "tall" },
+  { title: "Master Bedroom Media Wall", city: "Medipally", cat: "Bedroom", img: "/images/proj2.jpeg", h: "short" },
+  { title: "Modular Family Kitchen", city: "Medipally", cat: "Kitchen", img: "/images/proj3.jpeg", h: "tall" },
+  { title: "Dresser & Study Nook", city: "Medipally", cat: "Bedroom", img: "/images/proj4.jpeg", h: "short" },
+  { title: "Marble Bar & Dining", city: "Medipally", cat: "Living Room", img: "/images/proj5.jpeg", h: "tall" },
 ];
 
 const STYLES = [
@@ -234,7 +233,7 @@ function Services() {
 }
 
 function Projects() {
-  const cats = ["All", "Villa", "Apartment", "Independent", "Kitchen"];
+  const cats = ["All", "Bedroom", "Living Room", "Kitchen"];
   const [active, setActive] = useState("All");
   const filtered = active === "All" ? PROJECTS : PROJECTS.filter(p => p.cat === active);
   return (
