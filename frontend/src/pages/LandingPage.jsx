@@ -42,9 +42,14 @@ const PROPERTY_TYPES = [
 const PROJECTS = [
   { title: "Textured Wave Bedroom", city: "Medipally", cat: "Bedroom", img: "/images/proj1.jpeg", h: "tall" },
   { title: "Master Bedroom Media Wall", city: "Medipally", cat: "Bedroom", img: "/images/proj2.jpeg", h: "short" },
-  { title: "Modular Family Kitchen", city: "Medipally", cat: "Kitchen", img: "/images/proj3.jpeg", h: "tall" },
   { title: "Dresser & Study Nook", city: "Medipally", cat: "Bedroom", img: "/images/proj4.jpeg", h: "short" },
+  { title: "Floral Suite Bedroom", city: "Medipally", cat: "Bedroom", img: "/images/img7391.webp", h: "short" },
+  { title: "Serene Pastel Bedroom", city: "Medipally", cat: "Bedroom", img: "/images/img7334.webp", h: "short" },
   { title: "Marble Bar & Dining", city: "Medipally", cat: "Living Room", img: "/images/proj5.jpeg", h: "tall" },
+  { title: "Living Room Media Wall", city: "Medipally", cat: "Living Room", img: "/images/img7251.webp", h: "tall" },
+  { title: "Lounge & Console", city: "Medipally", cat: "Living Room", img: "/images/img7243.webp", h: "short" },
+  { title: "Modular Family Kitchen", city: "Medipally", cat: "Kitchen", img: "/images/proj3.jpeg", h: "tall" },
+  { title: "Grey Modular Kitchen", city: "Medipally", cat: "Kitchen", img: "/images/img7318.webp", h: "tall" },
 ];
 
 const STYLES = [
