@@ -623,24 +623,6 @@ function FooterCol({ title, items }) {
   );
 }
 
-function Marquee() {
-  const words = ["Homes Designed", "Years of Craft", "Client Satisfaction", "Premium Finish"];
-  const row = [...words, ...words, ...words];
-  return (
-    <section className="bg-brand-primary py-10 md:py-14 border-y border-brand-accent/15 overflow-hidden relative">
-      <div className="flex whitespace-nowrap gap-14 md:gap-20 animate-[marquee_38s_linear_infinite]">
-        {row.map((w, i) => (
-          <span key={i} className="font-display italic text-brand-bg/85 text-3xl md:text-5xl lg:text-6xl font-light tracking-tight inline-flex items-center gap-14 md:gap-20">
-            {w}
-            <span className="w-2 h-2 rounded-full bg-brand-accent inline-block" />
-          </span>
-        ))}
-      </div>
-      <style>{`@keyframes marquee { from { transform: translateX(0) } to { transform: translateX(-33.333%) } }`}</style>
-    </section>
-  );
-}
-
 function Manifesto() {
   const chapters = [
     { n: "Ch. 01", t: "We design for how people actually live.", d: "Not for magazines. Not for algorithms. For the coffee at 6am, the friends over on Fridays, and the quiet Sundays no one photographs." },
@@ -745,7 +727,7 @@ export default function LandingPage() {
     <div className="min-h-screen bg-brand-bg text-brand-text">
       <Navbar onBook={onBook} />
       <Hero onBook={onBook} />
-      <Marquee />
+      <Stats />
       <Manifesto />
       <WhyChoose />
       <Services />
@@ -753,7 +735,6 @@ export default function LandingPage() {
       <StepInside />
       <PropertyTypes />
       <Process />
-      <Stats />
       <Styles />
       <Testimonials />
       <FAQ />
