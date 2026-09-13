@@ -105,9 +105,12 @@ const fadeUp = { initial: { opacity: 0, y: 30 }, whileInView: { opacity: 1, y: 0
 function Logo({ light = false }) {
   return (
     <div className="flex items-center gap-3" data-testid="brand-logo">
-      <div className={`w-9 h-9 rounded-full grid place-items-center ${light ? "bg-brand-accent/20 border border-brand-accent/50" : "bg-brand-primary/5 border border-brand-primary/20"}`}>
-        <span className={`font-display text-lg ${light ? "text-brand-accent" : "text-brand-primary"}`}>S</span>
-      </div>
+      <img
+        src={light ? "/images/suja-mark-light.png" : "/images/suja-mark-dark.png"}
+        alt="Suja Contera"
+        className="h-9 w-auto object-contain shrink-0"
+        data-testid="brand-logo-mark"
+      />
       <div className="leading-tight">
         <div className={`font-display text-lg tracking-wide ${light ? "text-brand-bg" : "text-brand-primary"}`}>Suja Contera</div>
         <div className={`text-[10px] tracking-[0.3em] uppercase ${light ? "text-brand-accent" : "text-brand-secondary"}`}>Construction · Interiors</div>
@@ -126,7 +129,7 @@ function Navbar({ onBook }) {
   }, []);
   const links = [["Services", "services"], ["Projects", "projects"], ["Process", "process"], ["Stories", "testimonials"], ["Contact", "book"]];
   return (
-    <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled ? "backdrop-blur-xl bg-[#FAF8F5]/85 border-b border-brand-primary/10 py-3" : "py-6"}`} data-testid="site-navbar">
+    <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled ? "backdrop-blur-xl bg-[#e6e6df]/85 border-b border-brand-primary/10 py-3" : "py-6"}`} data-testid="site-navbar">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between">
         <a href="#top" className="flex items-center gap-3" data-testid="nav-home"><Logo light={!scrolled} /></a>
         <nav className="hidden md:flex items-center gap-9">
@@ -621,7 +624,7 @@ function FooterCol({ title, items }) {
 }
 
 function Marquee() {
-  const words = ["Walnut", "Italian Marble", "Brass Detail", "Turnkey Craft", "Hand-drawn", "Bespoke", "Since 2014", "Warm Modernism"];
+  const words = ["Homes Designed", "Years of Craft", "Client Satisfaction", "Premium Finish"];
   const row = [...words, ...words, ...words];
   return (
     <section className="bg-brand-primary py-10 md:py-14 border-y border-brand-accent/15 overflow-hidden relative">

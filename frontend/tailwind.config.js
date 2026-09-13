@@ -11,11 +11,11 @@ module.exports = {
       },
       colors: {
         brand: {
-          primary: "#2C211A",
-          secondary: "#5C4033",
+          primary: "#311b14",
+          secondary: "#45312b",
           accent: "#C8A96A",
-          bg: "#FAF8F5",
-          text: "#1E1E1E",
+          bg: "#e6e6df",
+          text: "#311b14",
           card: "#FFFFFF",
         },
         background: "hsl(var(--background))",
