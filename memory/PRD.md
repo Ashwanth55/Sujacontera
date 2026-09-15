@@ -26,10 +26,13 @@ Luxury landing page for an Indian interior design studio (apartments/villas/home
 - Marquee copy swap (Feb 2026): The scrolling ticker directly below the hero (`Marquee` component) changed from material buzzwords ("Walnut", "Italian Marble", "Brass Detail", etc.) to stat labels: "Homes Designed", "Years of Craft", "Client Satisfaction", "Premium Finish".
 - Stats moved below hero (Feb 2026): Since the Marquee ticker and the numeric `Stats` band ended up with duplicate labels, removed the `Marquee` component entirely and moved `Stats` (500+ Homes Designed / 10+ Years of Craft / 98% Client Satisfaction / 100% Premium Finish, walnut-surface dark band) to render immediately below `Hero`, replacing the old marquee slot. `Stats` no longer renders near `Process`/`Styles`. Verified on desktop + mobile: count-up animates on scroll into view, no duplicate text, no horizontal overflow.
 
+- Real project photos in Projects/albums (Jun 2026): Replaced stock Projects with the studio's own photos. Filter categories changed to `["All","Bedroom","Living Room","Kitchen"]` (each acts as an album — clicking shows only that category's photos). 10 real images in `/public/images/`: proj1/2/4 + img7391 + img7334 (Bedroom), proj5 + img7251 + img7243 (Living Room), proj3 + img7318 (Kitchen). Two phone shots (img7251, img7318) were rotated 90° CW to correct orientation. Portrait imgs use `h:"tall"` (3/4), landscape use `h:"short"` (4/3).
+- Brand font + real contact + copy (Jun 2026): Logo now uses the actual Amandine wordmark image (cropped from brand lockup) — `suja-wordmark-dark.png` / `suja-wordmark-light.png` shown beside the monogram in `Logo`, separate text removed (matches PDF exactly; Amandine/Futura PT are commercial fonts, so the wordmark is used as an image). Real contact wired in `CONTACT`: Call +91 70321 11527, WhatsApp +91 99851 35859 (wa.me 919985135859), Email sujacontera@gmail.com, Studio full Peerzadiguda/Medchal-Malkajgiri 500039 address. WhatsApp display bug fixed (was showing phone). Hero headline → "From Foundation to Finish." + new subtext; hero trust band replaced with 4 metrics (100+ Homes, 10+ Years of Experience, 98% Client Satisfaction, 100% Premium Finish); Stats band numbers updated to match (500→100, "Years of Craft"→"Years of Experience"). FAQ fully rewritten to 8 numbered Q&As (construction+interiors scope, quality, pricing, customisation, updates, end-to-end, budget, next steps) + italic closing line "Your vision. Our expertise. One seamless journey from foundation to finish." Removed unused Star/ShieldCheck imports in Hero.jsx.
+
 ## Credentials
 Admin: `admin@sujacontera.com` / `Admin@123`
 
 ## Backlog / Next
-- Real project photos & Google Maps embed
+- More client project photos (user adding in batches) & Google Maps embed
 - Blog / Journal section
 - WhatsApp Business API webhook

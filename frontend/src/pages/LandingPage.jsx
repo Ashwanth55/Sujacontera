@@ -21,10 +21,11 @@ import StepInside from "@/components/site/StepInside";
 
 /* ---------------------- Content ---------------------- */
 const CONTACT = {
-  phone: "+91 98XXX XXXXX",
-  whatsapp: "919000000000",
-  email: "hello@sujacontera.com",
-  city: "Hyderabad, India",
+  phone: "+91 70321 11527",
+  whatsapp: "919985135859",
+  whatsappDisplay: "+91 99851 35859",
+  email: "sujacontera@gmail.com",
+  city: "SUJA Constructions & Interiors, H.No 6-19/6/GS9, SVC Residency, Buddha Nagar, Road No 7, Peerzadiguda, Medchal–Malkajgiri, Telangana 500039",
 };
 
 const SERVICES = [
@@ -78,11 +79,14 @@ const PROCESS = [
 ];
 
 const FAQS = [
-  { q: "How long does a full-home interior project take?", a: "A 3BHK apartment typically completes in 45–60 working days after design sign-off. Villas range from 90 to 120 days depending on scope and material lead times." },
-  { q: "Do you offer transparent pricing?", a: "Yes. Every quotation is itemised — material, labour, finishes and GST are broken out separately. No hidden charges, ever." },
-  { q: "Which cities do you serve?", a: "Currently Hyderabad, Bengaluru and Vijayawada with hand-picked project teams. Others considered case-by-case." },
-  { q: "Do you handle just the kitchen or wardrobe?", a: "Absolutely — modular kitchens, wardrobes, TV units, false ceilings and renovation-only mandates are welcome." },
-  { q: "What warranty do you provide?", a: "10 years on modular carcass, 5 years on hardware, and 1 year comprehensive service on all civil and finishing work." },
+  { q: "Do you handle both construction and interiors?", a: "Yes. From construction and structural works to interior design, execution and renovation, Suja Contera provides an integrated end-to-end solution." },
+  { q: "How do you ensure quality throughout the project?", a: "Quality is monitored at every stage through careful material selection, skilled workmanship, site supervision and stage-wise quality checks." },
+  { q: "Is your pricing transparent?", a: "Yes. We provide detailed estimates with clear specifications, inclusions and exclusions. Any additional work or changes are discussed and approved before execution." },
+  { q: "Can the design be customised to my lifestyle?", a: "Absolutely. Every project is designed around the client's lifestyle, functional needs, aesthetic preferences and budget—never as a one-size-fits-all solution." },
+  { q: "Will I receive regular updates during execution?", a: "Yes. We maintain clear communication throughout the project with regular progress updates, site photographs and important execution milestones." },
+  { q: "Can you manage the project from design to handover?", a: "Yes. Our team coordinates design, materials, skilled manpower, site execution, supervision and finishing, giving you one point of coordination from start to completion." },
+  { q: "Can you work within a defined budget?", a: "Yes. We help establish priorities and select appropriate materials and specifications to achieve the right balance between design, quality and investment." },
+  { q: "What happens after I contact Suja Contera?", a: "We begin with a consultation to understand your requirements, site, design expectations and budget. From there, we develop the appropriate proposal and guide you through the next steps." },
 ];
 
 /* ---------------------- UI helpers ---------------------- */
@@ -112,13 +116,15 @@ function Logo({ light = false }) {
       <img
         src={light ? "/images/suja-mark-light.png" : "/images/suja-mark-dark.png"}
         alt="Suja Contera"
-        className="h-9 w-auto object-contain shrink-0"
+        className="h-10 w-auto object-contain shrink-0"
         data-testid="brand-logo-mark"
       />
-      <div className="leading-tight">
-        <div className={`font-display text-lg tracking-wide ${light ? "text-brand-bg" : "text-brand-primary"}`}>Suja Contera</div>
-        <div className={`text-[10px] tracking-[0.3em] uppercase ${light ? "text-brand-accent" : "text-brand-secondary"}`}>Construction · Interiors</div>
-      </div>
+      <img
+        src={light ? "/images/suja-wordmark-light.png" : "/images/suja-wordmark-dark.png"}
+        alt="Suja Contera — Construction & Interiors"
+        className="h-9 w-auto object-contain"
+        data-testid="brand-logo-wordmark"
+      />
     </div>
   );
 }
@@ -334,8 +340,8 @@ function Stats() {
     return () => obs.disconnect();
   }, []);
   const items = [
-    { n: 500, suf: "+", l: "Homes Designed" },
-    { n: 10, suf: "+", l: "Years of Craft" },
+    { n: 100, suf: "+", l: "Homes" },
+    { n: 10, suf: "+", l: "Years of Experience" },
     { n: 98, suf: "%", l: "Client Satisfaction" },
     { n: 100, suf: "%", l: "Premium Finish" },
   ];
@@ -428,19 +434,22 @@ function FAQ() {
         <motion.div {...fadeUp} className="mb-14 text-center">
           <div className="eyebrow mb-5">Frequently Asked</div>
           <h2 className="font-display font-light text-4xl md:text-5xl text-brand-primary leading-tight">
-            Answered, <em className="italic text-brand-secondary">plainly.</em>
+            Clear answers. <em className="italic text-brand-secondary">Thoughtful decisions.</em>
           </h2>
         </motion.div>
         <Accordion type="single" collapsible className="w-full" data-testid="faq-accordion">
           {FAQS.map((f, i) => (
             <AccordionItem key={i} value={`i-${i}`} className="border-b border-brand-primary/10 py-2">
               <AccordionTrigger className="text-left font-display text-lg md:text-xl text-brand-primary hover:no-underline hover:text-brand-accent transition-colors" data-testid={`faq-q-${i}`}>
-                {f.q}
+                <span className="flex gap-3"><span className="text-brand-accent/70 tabular-nums">{String(i + 1).padStart(2, "0")}</span><span>{f.q}</span></span>
               </AccordionTrigger>
-              <AccordionContent className="text-brand-primary/70 leading-relaxed text-base pb-6">{f.a}</AccordionContent>
+              <AccordionContent className="text-brand-primary/70 leading-relaxed text-base pb-6 pl-9">{f.a}</AccordionContent>
             </AccordionItem>
           ))}
         </Accordion>
+        <motion.p {...fadeUp} className="mt-14 text-center font-display italic text-xl md:text-2xl text-brand-secondary leading-snug" data-testid="faq-closing">
+          Your vision. Our expertise. One seamless journey from foundation to finish.
+        </motion.p>
       </div>
     </section>
   );
@@ -515,7 +524,7 @@ function BookingSection({ formRef }) {
               </a>
               <a href={`https://wa.me/${CONTACT.whatsapp}`} target="_blank" rel="noreferrer" className="flex items-center gap-4 group" data-testid="contact-whatsapp">
                 <div className="w-11 h-11 rounded-full border border-brand-accent/40 grid place-items-center group-hover:bg-brand-accent group-hover:text-brand-primary transition-colors"><MessageCircle className="w-4 h-4" /></div>
-                <div><div className="text-xs uppercase tracking-widest text-brand-accent">WhatsApp</div><div className="font-medium">{CONTACT.phone}</div></div>
+                <div><div className="text-xs uppercase tracking-widest text-brand-accent">WhatsApp</div><div className="font-medium">{CONTACT.whatsappDisplay}</div></div>
               </a>
               <a href={`mailto:${CONTACT.email}`} className="flex items-center gap-4 group" data-testid="contact-email">
                 <div className="w-11 h-11 rounded-full border border-brand-accent/40 grid place-items-center group-hover:bg-brand-accent group-hover:text-brand-primary transition-colors"><Mail className="w-4 h-4" /></div>
@@ -592,7 +601,7 @@ function Footer() {
             <div className="eyebrow mb-5">Reach Us</div>
             <ul className="space-y-3 text-brand-bg/70 text-sm">
               <li>{CONTACT.city}</li>
-              <li><a href={`tel:${CONTACT.phone}`}>{CONTACT.phone}</a></li>
+              <li><a href={`tel:${CONTACT.phone.replace(/\s/g,"")}`}>{CONTACT.phone}</a></li>
               <li><a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></li>
             </ul>
             <div className="flex gap-3 mt-6">

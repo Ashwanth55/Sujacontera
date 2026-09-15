@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
-import { ArrowRight, ArrowUpRight, ShieldCheck, Star } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import "./hero.css";
 
@@ -76,11 +76,11 @@ export const Hero = ({ onBook }) => {
             <span aria-hidden="true" /> Suja Contera · Interior Design
           </motion.div>
           <motion.h1 {...reveal(0.2)} id="hero-title" className="font-display text-4xl sm:text-5xl lg:text-6xl" data-testid="hero-headline">
-            Beautiful spaces.<br />
-            <em>A feeling of home.</em>
+            From Foundation<br />
+            <em>to Finish.</em>
           </motion.h1>
           <motion.p {...reveal(0.3)} className="interior-hero__description" data-testid="hero-description">
-            Thoughtful details. Timeless materials. Bespoke interiors that bring your idea of home to life.
+            Exceptional construction and bespoke interiors, thoughtfully designed and expertly executed.
           </motion.p>
           <motion.p {...reveal(0.35)} className="interior-hero__homes" data-testid="hero-property-types">
             Apartments <span aria-hidden="true">/</span> Villas <span aria-hidden="true">/</span> Independent homes
@@ -96,15 +96,10 @@ export const Hero = ({ onBook }) => {
         </div>
 
         <motion.div {...reveal(0.5)} className="interior-hero__footer" data-testid="hero-trust-signals">
-          <div className="interior-hero__rating" data-testid="hero-google-rating">
-            <div className="flex gap-1" aria-hidden="true">
-              {Array.from({ length: 5 }).map((_, i) => <Star key={i} className="w-3.5 h-3.5 fill-brand-accent text-brand-accent" />)}
-            </div>
-            <span>4.9 · 240+ Google reviews</span>
-          </div>
-          <div data-testid="hero-homes-count"><strong>500+</strong> Homes designed</div>
-          <div className="interior-hero__warranty" data-testid="hero-warranty"><ShieldCheck className="w-4 h-4" /> 10-Year Warranty</div>
-          <a href="#services" className="interior-hero__explore" data-testid="hero-explore-services">Our expertise <ArrowUpRight className="w-4 h-4" /></a>
+          <div data-testid="hero-stat-homes"><strong>100+</strong> Homes</div>
+          <div data-testid="hero-stat-experience"><strong>10+</strong> Years of Experience</div>
+          <div data-testid="hero-stat-satisfaction"><strong>98%</strong> Client Satisfaction</div>
+          <div data-testid="hero-stat-finish"><strong>100%</strong> Premium Finish</div>
         </motion.div>
       </div>
 
