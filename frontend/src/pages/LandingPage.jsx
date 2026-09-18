@@ -17,7 +17,6 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { api } from "@/lib/apiClient";
 import { useLenis } from "@/components/site/luxury";
 import { Hero } from "@/components/site/Hero";
-import StepInside from "@/components/site/StepInside";
 
 /* ---------------------- Content ---------------------- */
 const CONTACT = {
@@ -32,12 +31,14 @@ const SERVICES = [
   { title: "Apartment Interiors", tag: "Turnkey", img: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1400&q=80" },
   { title: "Villa Interiors", tag: "Signature", img: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=80" },
   { title: "Independent Homes", tag: "Bespoke", img: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=80" },
+  { title: "Commercial Interiors", tag: "Workspaces", img: "https://images.pexels.com/photos/5511098/pexels-photo-5511098.jpeg?auto=compress&cs=tinysrgb&w=1400" },
 ];
 
 const PROPERTY_TYPES = [
   { title: "Apartment Interiors", tag: "Turnkey", desc: "Full-home interiors for flats and condos, engineered for compact luxury and zero wasted space.", img: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1400&q=80" },
   { title: "Villa Interiors", tag: "Signature", desc: "Statement interiors for standalone villas — layered materials, generous scale, quiet grandeur.", img: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1400&q=80" },
   { title: "Independent Homes", tag: "Bespoke", desc: "Ground-up, fully bespoke interiors for independent houses — designed around how your family lives.", img: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1400&q=80" },
+  { title: "Commercial Interiors", tag: "Workspaces", desc: "Offices, retail and hospitality spaces — functional, on-brand environments built to impress clients and inspire teams.", img: "https://images.unsplash.com/photo-1579487785973-74d2ca7abdd5?auto=format&fit=crop&w=1400&q=80" },
 ];
 
 const PROJECTS = [
@@ -64,9 +65,10 @@ const STYLES = [
 ];
 
 const TESTIMONIALS = [
-  { name: "Aditi & Rohan Verma", role: "Villa Owners, Jubilee Hills", quote: "Suja Contera turned a blueprint into a home we never want to leave. Every detail — the walnut grain, the marble edges, the way light falls at dusk — feels considered.", img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=400&q=80" },
-  { name: "Karthik Reddy", role: "3BHK, Gachibowli", quote: "Delivered two weeks ahead of schedule, on budget, and the finish quality is genuinely on par with 5-star hotels. Their design team is unusually patient.", img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=80" },
-  { name: "Meera Iyer", role: "Independent Home, Banjara", quote: "The modular kitchen alone changed how our family lives. Warm, quiet, and the storage — extraordinary. Worth every rupee.", img: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=400&q=80" },
+  { name: "Yogesh Nukala", role: "Local Guide · Google review", quote: "When I was planning to go for woodwork I had a concern especially about quality and time, and tried most of the big interior companies but felt a little confused. When I reached Tirumalesh and told him I needed the work done within 45 days with good quality — he made it on time and assisted in all the planning: lighting, design, laminate selection, handles and finally painting. Whenever I called, he was responsive and reachable, and his team helped a lot. Thank you Tirumalesh and team for making my dream home more beautiful." },
+  { name: "Vinay Kuncharam", role: "Google review", quote: "I chose the right time and the right company — Suja Projects. The work is really great and they delivered the project on time. The quality was awesome and they work at affordable prices compared to many others." },
+  { name: "Venky Sahaj", role: "Google review", quote: "From creating the perfect layout to finding pieces I absolutely loved, they really took the space to the next level. I feel really good with the Suja team — they patiently listen to our needs. I loved their professionalism!" },
+  { name: "Swaminathan Srinivas", role: "Google review", quote: "The way they approached everything, right through to the handover — they took care at every step. It's rare to find such patient and calm people at work, and they've always been on time. Kudos guys." },
 ];
 
 const PROCESS = [
@@ -137,7 +139,7 @@ function Navbar({ onBook }) {
     on(); window.addEventListener("scroll", on);
     return () => window.removeEventListener("scroll", on);
   }, []);
-  const links = [["Services", "services"], ["Projects", "projects"], ["Process", "process"], ["Stories", "testimonials"], ["Contact", "book"]];
+  const links = [["About", "about"], ["Services", "services"], ["Projects", "projects"], ["Process", "process"], ["Stories", "testimonials"], ["Contact", "book"]];
   return (
     <header className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${scrolled ? "backdrop-blur-xl bg-[#e6e6df]/85 border-b border-brand-primary/10 py-3" : "py-6"}`} data-testid="site-navbar">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between">
@@ -217,12 +219,12 @@ function Services() {
               Turnkey interiors, <em className="italic text-brand-secondary">rendered in full.</em>
             </h2>
           </div>
-          <p className="text-brand-primary/60 max-w-sm">Three home types. One studio. One accountable senior designer per project.</p>
+          <p className="text-brand-primary/60 max-w-sm">Homes and workspaces, delivered turnkey. One studio, one accountable senior designer per project.</p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {SERVICES.map((s, idx) => (
-            <motion.a key={s.title} href="#book" {...fadeUp} transition={{ ...fadeUp.transition, delay: (idx % 3) * 0.06 }}
+            <motion.a key={s.title} href="#book" {...fadeUp} transition={{ ...fadeUp.transition, delay: (idx % 4) * 0.06 }}
               className="group relative overflow-hidden rounded-[20px] aspect-[3/4] bg-brand-primary block"
               data-testid={`service-card-${idx}`}>
               <img src={s.img} alt={s.title} loading="lazy" className="absolute inset-0 w-full h-full object-cover transition-transform duration-[1200ms] group-hover:scale-110" />
@@ -401,19 +403,21 @@ function Testimonials() {
           </div>
           <div className="flex items-center gap-3">
             <div className="flex gap-1">{Array.from({ length: 5 }).map((_, i) => <Star key={i} className="w-4 h-4 fill-brand-accent text-brand-accent" />)}</div>
-            <span className="text-brand-primary/70 text-sm">4.9 on Google · 240+ reviews</span>
+            <span className="text-brand-primary/70 text-sm">Verified reviews from Google</span>
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
           {TESTIMONIALS.map((t, i) => (
             <motion.div key={t.name} {...fadeUp} transition={{ ...fadeUp.transition, delay: i * 0.1 }}
-              className="bg-brand-card rounded-[24px] p-8 md:p-10 border border-brand-primary/5 shadow-[0_6px_28px_rgba(44,33,26,0.05)]"
+              className="bg-brand-card rounded-[24px] p-8 md:p-10 border border-brand-primary/5 shadow-[0_6px_28px_rgba(44,33,26,0.05)] flex flex-col"
               data-testid={`testimonial-${i}`}>
               <div className="flex gap-1 mb-6">{Array.from({ length: 5 }).map((_, k) => <Star key={k} className="w-4 h-4 fill-brand-accent text-brand-accent" />)}</div>
-              <p className="font-serifAlt text-xl md:text-[22px] text-brand-primary/90 leading-relaxed italic mb-8">"{t.quote}"</p>
+              <p className="font-serifAlt text-lg text-brand-primary/90 leading-relaxed italic mb-8 flex-1">"{t.quote}"</p>
               <div className="flex items-center gap-4 pt-6 border-t border-brand-primary/10">
-                <img src={t.img} alt={t.name} className="w-12 h-12 rounded-full object-cover" />
+                <div className="w-12 h-12 rounded-full bg-brand-primary text-brand-bg grid place-items-center font-display text-lg shrink-0" aria-hidden="true">
+                  {t.name.split(" ").map(w => w[0]).slice(0, 2).join("")}
+                </div>
                 <div>
                   <div className="font-medium text-brand-primary">{t.name}</div>
                   <div className="text-xs text-brand-secondary tracking-wide">{t.role}</div>
@@ -679,7 +683,7 @@ function PropertyTypes() {
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {PROPERTY_TYPES.map((p, idx) => (
             <motion.a key={p.title} href="#book" {...fadeUp} transition={{ ...fadeUp.transition, delay: idx * 0.1 }}
               className="group relative overflow-hidden rounded-[24px] aspect-[3/4] block"
